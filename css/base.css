@@ -34,6 +34,7 @@
 html {
 	line-height: 1.15;  /* 1 */
 	-webkit-text-size-adjust: 100%;  /* 2 */
+	scroll-behavior: smooth;
 }
 
 /* ------------------------------------------------------------------- 
@@ -978,6 +979,97 @@ textarea {
 	}
 
 }
+
+.events-banner {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 9/16 = 0.5625 = 56.25% */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.events-banner__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* keeping this if you i still want some cropping with full cover */
+}
+
+
+.events-banner__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.events-banner:hover .events-banner__overlay {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+}
+
+.events-banner__content {
+    text-align: center;
+    color: #fff;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.events-banner__content h2 {
+    font-size: 4rem; /* previously 2.5rem */
+    margin-bottom: 1rem;
+	color: #ffffff;
+}
+
+.events-banner__content p {
+    font-size: 2rem; /* previously 1rem */
+    margin-bottom: 1.5rem;
+	color: #f0f0f0;
+}
+
+.btn {
+    font-size: 1rem; /* Add this if it’s not set */
+    padding: 1rem 2rem; /* Bigger button */
+	border-radius: 8px;
+	background-color: #ffffff;
+    color: #000000;
+}
+
+.btn:hover{
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+
+/* ------------------------------------------------------------------- 
+ * ## small mobile devices <= 600px
+ * ------------------------------------------------------------------- */
+ @media screen and (max-width: 768px) {
+    .events-banner__content h2 {
+        font-size: 2rem;
+    }
+
+    .events-banner__content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+
 
 /* ------------------------------------------------------------------- 
  * ## small mobile devices <= 400px
